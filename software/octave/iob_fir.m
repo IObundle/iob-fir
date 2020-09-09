@@ -23,9 +23,9 @@ close all
 #gain
 #G = 1
 
-C_Q = 0
+C_Q = 0;
 
-L=32 ; L_W=5; C_W=2;COEFF_FILE='fir1.hex'
+L=32 ; L_W=5; C_W=2;COEFF_FILE='fir1.hex';
 
 if (exist ("params.m"))
   source ("params.m");
@@ -34,12 +34,12 @@ else
 end
 
 #time vector if needed
-t = 1/L:1/L:1
+t = 1/L:1/L:1;
 
 #uncomment or create response below;
 
 #flat response (moving average)
-h(1:L) = 1
+h(1:L) = 1;
 
 #octave fir1
 #h = fir1(L-1, pi*FC/FS);
