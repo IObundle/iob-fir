@@ -5,7 +5,7 @@ module iob_fir
    parameter DATA_IN_W = 8,
    parameter DATA_OUT_W = 8,
    parameter COEFF_W = 8,
-   parameter COEFF_FILE = 0,
+   parameter COEFF_FILE = "",
    parameter LENGTH = 32,
    parameter LENGTH_W = 5
    )
