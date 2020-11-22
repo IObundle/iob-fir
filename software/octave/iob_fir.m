@@ -48,14 +48,14 @@ h(1:L) = 1;
 #h = sinc(t).*blackmanharris(32)';
 
 #plot filter before coeff quantization
-freqz(h)
+#freqz(h)
 
 #quantize coeffs
 h = rem(round(h*2^C_Q),2^C_W);
 
 #plot filter after coeff quantization
-figure 
-freqz(h)
+#figure
+#freqz(h)
 
 #2s complement
 for i=1:length(h)
