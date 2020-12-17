@@ -32,8 +32,16 @@ module iob_fir
      end
 
    // init coeff memory
-   reg signed [COEFF_W-1:0]  h[LENGTH/2-1:0];
-   initial $readmemh(COEFF_FILE, h, 0, LENGTH/2-1);
+   wire signed [COEFF_W-1:0]  h[LENGTH/2-1:0];
+   generate
+      if (COEFF_FILE == "fir1coeffs.v") begin
+`include "fir1coeffs.v"
+      end else if (COEFF_FILE == "fir2coeffs.v") begin
+`include "fir2coeffs.v"
+      end else if (COEFF_FILE == "fir3coeffs.v") begin
+`include "fir3coeffs.v"
+      end
+   endgenerate
 
    wire [15:0]               watch_coeff = h[1];
    
