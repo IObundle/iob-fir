@@ -25,7 +25,7 @@ close all
 
 C_Q = 0;
 
-L=32 ; L_W=5; C_W=2;COEFF_FILE='fir1.hex';
+L=32 ; L_W=5; C_W=2;COEFF_FILE='fir1coeffs.v';
 
 if (exist ("params.m"))
   source ("params.m");
@@ -65,9 +65,10 @@ for i=1:length(h)
 end
 
 #print coeffs file
+j = 0;
 fp = fopen(COEFF_FILE, "w");
 for i=1+length(h)/2:length(h)
-  fprintf(fp, "%s\n", dec2hex(h(i)));
+  fprintf(fp, "   assign h[%d] = %d'h%s;\n", j, C_W, dec2hex(h(i)));
+  j=j+1;
 end
-
 fclose(fp);
